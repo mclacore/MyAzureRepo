@@ -23,10 +23,6 @@ $account = Test-1PasswordCredentials -SignInAddress $1PSignInAddress -SignInAcco
 Set-1PasswordConfiguration -SignInAddress $1PSignInAddress -SignInAccount $1PSignInAccount -SecretKey $1PSecretKey -MasterPassword $1PMasterPassword -Default
 Invoke-1PasswordExpression "list vaults"
 
-#Set variable for current password
-
-#Change new password and update old password
-
 #Set variable for new password
 $NewPassword = ((Invoke-1PasswordExpression "get item TestAccount").details.fields | where-object {$_.designation -eq 'password'} | select-object -property value).value
 
